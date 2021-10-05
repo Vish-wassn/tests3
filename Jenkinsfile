@@ -8,6 +8,16 @@ pipeline {
                 sh 'aws s3api put-object-acl --bucket s3demo30092021 --key package-lock.json --acl public-read'
                 sh 'aws s3 cp public/package.json s3://s3demo30092021'
                 sh 'aws s3api put-object-acl --bucket s3demo30092021 --key package.json --acl public-read'
+                sh 'aws s3 cp public/README.md s3://s3demo30092021'
+                sh 'aws s3api put-object-acl --bucket s3demo30092021 --key README.md --acl public-read'
+                sh 'aws s3 cp public/.gitignore s3://s3demo30092021'
+                sh 'aws s3api put-object-acl --bucket s3demo30092021 --key .gitignore --acl public-read'
+                sh 'aws s3 cp public s3://s3demo30092021 --recursive'
+                sh 'aws s3api put-object-acl --bucket s3demo30092021 --key src --acl public-read'
+                sh 'aws s3 cp public s3://s3demo30092021 --recursive'
+                sh 'aws s3api put-object-acl --bucket s3demo30092021 --key public --acl public-read'
+                sh 'aws s3 cp public s3://s3demo30092021 --recursive'
+                sh 'aws s3api put-object-acl --bucket s3demo30092021 --key build --acl public-read'
                   
             }
         }
