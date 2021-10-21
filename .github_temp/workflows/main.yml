@@ -19,3 +19,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.oBpDmmcJSoJOhu/O74lnLGHoGVQr19bapt1KgqcS }}
         AWS_REGION: 'ap-south-1'   # optional: ap-south-1
         SOURCE_DIR: 'public'      # optional: defaults to entire repository
+      - name: Build React App
+        run: npm install && npm run build
+      - name: Deploy app build to S3 bucket
+        run: aws s3 sync ./dist/ s3://reactapp21oct2021 --delete
